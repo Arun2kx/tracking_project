@@ -1,26 +1,26 @@
 Multi-Object Detection and Tracking using YOLOv8 and DeepSORT
 
 Objective:
-The objective of this project is to detect multiple objects (players) in a sports video and assign consistent unique IDs to track them across frames.
+The objective of this project is to detect multiple players in a sports video and assign consistent unique IDs to track them across frames.
 
 Approach:
-In this project, I used YOLOv8 for object detection and DeepSORT for tracking. YOLOv8 detects objects frame by frame and provides bounding boxes. I filtered only the “person” class to focus on players.
+In this project, I used YOLOv8 for object detection and DeepSORT for tracking. YOLOv8 is a fast and accurate model that detects objects frame by frame and provides bounding boxes. I filtered only the "person" class to focus on players.
 
-DeepSORT is used to assign unique IDs to each detected player and maintain identity across frames. It uses motion and appearance features to track objects even when there is movement or partial occlusion.
+DeepSORT is used to assign unique IDs and maintain identity across frames. It uses both motion information and appearance features to track objects even during movement and partial occlusion.
 
 Working Pipeline:
-First, the input video is read frame by frame using OpenCV. Each frame is passed to YOLOv8, which detects players and returns bounding boxes. These detections are then passed to DeepSORT tracker, which assigns unique IDs and tracks each player across frames.
+The input video is processed frame by frame using OpenCV. Each frame is passed to YOLOv8 for detection. The detected bounding boxes are then given to DeepSORT, which assigns unique IDs and tracks each player across frames.
 
-Finally, bounding boxes and IDs are drawn on each frame, and the processed frames are saved into an output video.
+Finally, bounding boxes and IDs are drawn on each frame, and the processed frames are saved as an output video.
 
 Challenges:
-One of the main challenges was handling occlusion, where players overlap each other. In such cases, ID switching can occur. Another challenge was handling similar-looking players, which can confuse the tracker.
+Handling occlusion was one of the main challenges, where players overlap each other. In such cases, ID switching may occur. Another challenge was tracking similar-looking players.
 
 Limitations:
-The system may fail in cases of heavy occlusion or when players look very similar. Also, performance is slower on CPU.
+The system may not perform well in heavy occlusion scenarios or when players have very similar appearances. Also, performance is slower when running on CPU.
 
 Future Improvements:
-The system can be improved by using GPU for faster processing. We can also use advanced re-identification models to improve tracking accuracy and reduce ID switching.
+The system can be improved by using GPU acceleration for faster processing. Additionally, advanced re-identification models can be used to improve tracking accuracy and reduce ID switching.
 
 Conclusion:
-The project successfully detects and tracks multiple players in a video and assigns unique IDs. The system demonstrates a practical application of computer vision and multi-object tracking.
+This project successfully demonstrates a real-world application of computer vision for multi-object detection and tracking. It effectively assigns unique IDs to players and tracks them across video frames.
